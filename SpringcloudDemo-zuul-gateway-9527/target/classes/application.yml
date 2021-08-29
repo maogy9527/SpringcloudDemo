@@ -1,0 +1,27 @@
+server:
+  port: 9527
+  
+  
+spring:
+  application:
+    name: SpringcloudDemo-zuul-gateway
+    
+eureka:
+  client: #客户端注册到服务中心列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+#      ,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true #访问路径显示成ip地址
+
+# 修改zuul的映射名    
+zuul:
+  ignored-services: SpringcloudDemo-dept  # 屏蔽原路径
+  routes:
+    mydept.serviceId: SpringcloudDemo-dept    
+    mydept.path: /mydept/**
+ 
+    
+info:
+  app.name: SpringcloudDemoZuulGateway

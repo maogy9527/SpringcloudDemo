@@ -1,0 +1,12 @@
+server:
+  port: 9527
+  
+spring:
+  application:
+    name: SpringcloudDemo-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/CatchNewBug/SpringcloudDemo-config.git #github上面的git仓库的名字
+
